@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<div class="container center">
+  <div class="search">
+    <div class="col col1">
+      <button mat-fab color="primary" class="add_task" aria-label="Example icon button with a delete icon"
+        (click)="addTask()">
+        <mat-icon class="colorWhite">note_add</mat-icon>
+      </button>
+    </div>
+    <div class="col col2">
+
+      <input type="text" [(ngModel)]="search" [ngClass]="{'hidden': !showSearch, 'search_input': showSearch}">
+    </div>
+    <div class="col col3">
+      <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+        <mat-icon class="colorWhite" (click)="showSearchFn()">search</mat-icon>
+      </button>
+    </div>
+  </div>
+  <ul class="cards">
+    <!-- <ng-container > -->
+    <li class="cards__item" *ngFor="let data of dataPayload.data | filter : search">
+      <div class="card">
+        <div class="card__content">
+          <div class="card__title">{{data.title}}</div>
+          <h1 class="card__sub_title">{{data.date}}, {{ data.time}}</h1>
+          <ul class="tasks">
+            <ng-container *ngFor="let task of data.tasks">
+              <li class="task" [ngClass]="{'completed': task.isComplete, 'no_finish': !task.isComplete}"
+                [id]="task.isComplete">
+                {{ task.task}}
+              </li>
+
+            </ng-container>
+
+
+          </ul>
+          <div class="buttons">
+            <button class="btn btn--block card__btn editBtn" (click)="editTask(data.id)">
+              Editar
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button class="btn btn--block card__btn deleteBtn" (click)="deleteTask(data.id)">
+              Eliminar
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+    </li>
+    <!-- </ng-container> -->
+
+
+
+  </ul>
+</div>

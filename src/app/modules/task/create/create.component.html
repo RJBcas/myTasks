@@ -1,0 +1,51 @@
+<app-header></app-header>
+<button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="goToList()">
+  <mat-icon>keyboard_arrow_left</mat-icon> Atrás
+</button>
+<mat-card class="main-div">
+  <mat-card-title>Crear Tarea</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="createForm">
+      <p>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Titulo de la Actividad o Tarea" formControlName="title">
+        </mat-form-field>
+      </p>
+
+      <ng-container formArrayName="tasks">
+
+        <p *ngFor="let task of tasks.controls; index as i ">
+          <ng-container [formGroupName]="i">
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Tarea</mat-label>
+              <input type="text" formControlName="task" matInput placeholder="Tarea" maxlength="20">
+              <mat-icon matSuffix (click)="removeTask(i)">delete_outline</mat-icon>
+            </mat-form-field>
+          </ng-container>
+        </p>
+
+      </ng-container>
+
+
+
+      <!-- <mat-form-field>
+    <input type="text" matInput placeholder="Password" formControlName="password">
+  </mat-form-field> -->
+
+      <!-- <p *ngIf="error" class="error">
+  {{ error }}
+</p> -->
+
+
+      <div class="button">
+        <button mat-mini-fab color="primary" class="add_task" aria-label="Example icon button with a delete icon"
+          (click)="addTask()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <button type="submit" mat-button (click)="createTask()" [disabled]="!createForm.valid">Crear</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

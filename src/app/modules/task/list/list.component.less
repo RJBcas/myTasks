@@ -1,0 +1,268 @@
+@gray-darker: #444444;
+@gray-dark: #696969;
+@gray: #999999;
+@gray-light: #cccccc;
+@gray-lighter: #ececec;
+@gray-lightest: lighten(@gray-lighter, 4%);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #f0f0f0;
+}
+
+body {
+  color: @gray;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  background-color: white;
+  border: 1px solid @gray-light;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+.btn--block {
+  display: block;
+  width: 45%;
+  margin: auto;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.cards__item {
+  display: flex;
+  padding: 1rem;
+
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &:hover {
+    .card__image {
+      filter: contrast(100%);
+    }
+  }
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.card__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  filter: contrast(70%);
+  //filter: saturate(180%);
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(.43, .41, .22, .91);
+  ;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; // 16:9 aspect ratio
+  }
+
+  @media(min-width: 40rem) {
+    &::before {
+      padding-top: 66.6%; // 3:2 aspect ratio
+    }
+  }
+}
+
+.card__title {
+  color: black;
+  font-size: 1.25rem;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1.card__sub_title {
+  text-align: center;
+
+}
+
+.card__sub_title {
+  color: @gray-dark;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li.completed:before {
+  content: '✓';
+  color: greenyellow;
+}
+
+ul li.no_finish:before {
+  content: '✘';
+  color: red;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 5%;
+}
+
+.edit {
+  color: #df911c;
+}
+
+.delete {
+  color: red;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.search {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right: 2.5%;
+  flex-direction: row;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+button.mat-focus-indicator.mat-fab.mat-button-base.mat-primary {
+  right: -2%;
+}
+
+.editBtn mat-icon {
+  color: #019c41;
+}
+
+.deleteBtn mat-icon {
+  color: #f11842;
+}
+
+// mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color {
+//   color: #3f51b5;
+// }
+
+// mat-icon.colorWhite {
+//   color: #fff !important;
+// }
+
+//Tablet
+@media screen and (max-width: 768px) {
+  input.search_input {
+    margin-right: 35%;
+  }
+
+  button.add_task {
+    margin-right: 83%;
+  }
+}
+
+//Mobile L
+@media screen and (max-width: 425px) {
+  input.search_input {
+    margin-right: 23%;
+  }
+
+  button.add_task {
+    margin-right: 71%;
+  }
+}
+
+//Mobile M
+@media screen and (max-width: 375px) {
+  input.search_input {
+    margin-right: 20%;
+  }
+
+  button.add_task {
+    margin-right: 67%;
+  }
+}
+
+//Mobile s
+@media screen and (max-width: 320px) {
+  button.add_task {
+    margin-right: 4%;
+  }
+}
+
+//Laptop
+@media screen and (min-width: 1024px) {
+  input.search_input {
+    margin-right: 39%;
+  }
+
+  .search {}
+
+  button.add_task {
+    margin-right: 86%;
+  }
+}
+
+//Lapto L
+@media screen and (min-width: 1440px) {
+  input.search_input {
+    margin-right: 43%;
+  }
+
+  button.add_task {
+    margin-right: 89%;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="modal-content" *ngIf="showModal">
+  <div id="open-id" class="modal">
+    <div class="modal-content animations-top card" [class]="dataModal.class" >
+      <div class="modal-content">
+        <span class="close-click" (click)="closeModal()">
+          <img class="close" src="https://cdn-icons-png.flaticon.com/512/15/15287.png" />
+        </span>
+        <div class="title_modal">
+          <h1> {{ dataModal.title }}</h1>
+        </div>
+        <div class="body-center">
+          <p> {{ dataModal.description }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
