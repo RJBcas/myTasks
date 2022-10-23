@@ -7,16 +7,16 @@ import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
   {
-    path: '', component: ListComponent
-    // path:'', component: ListComponent, canActivate: [AuthGuard]
+   // path: '', component: ListComponent
+     path:'', component: ListComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'create', component: CreateComponent
-    // path:'create', component: CreateComponent, canActivate: [AuthGuard]
+    //path: 'create', component: CreateComponent
+     path:'create', component: CreateComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'edit', component: EditComponent
-    // path:'edit', component: EditComponent, canActivate: [AuthGuard]
+    //path: 'edit', component: EditComponent
+     path:'edit', component: EditComponent, canActivate: [AuthGuard]
   }
 ];
 
