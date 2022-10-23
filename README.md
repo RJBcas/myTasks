@@ -48,7 +48,7 @@ Iniciar El servidor
   ng serve 
 ```
 
-Run coveragerrrrrr
+Run coverager
 
 ```bash
   ng test --code-coverage
